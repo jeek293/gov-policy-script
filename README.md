@@ -1,7 +1,7 @@
 # **Federal Policy Tracker: NLP-Driven Sector Analysis**
 
 ## **Project Overview**
-This analytical tool provides a pipeline for monitoring US Federal Government activity. It identifies relevant policy changes by comparing real-time Federal Register documents against specific industry profiles using transformer-based semantic similarity.
+This analytical tool provides a pipeline for monitoring US Federal Government activity. It identifies relevant policy changes by comparing real-time Federal Register documents against specific industry profiles using transformer-based semantic similarity. Although fairly simple, this is much more so meant to demonstrate driving business value, rather than technical grace.
 
 ### **Technical Workflow**
 1.  **ETL Pipeline**: Extracts the last 6 months of rules and presidential documents from the `FederalRegister.gov` API.
@@ -13,6 +13,7 @@ This analytical tool provides a pipeline for monitoring US Federal Government ac
 Enables policy analysts and tech executives to programmatically identify regulatory signals within thousands of daily government publications that might otherwise be missed by keyword-only searches.
 
 ###**TODOS**:
+- Clean up output
 - Add Vector DB for storage, metadata for efficient and precise retrieval
 -   Add LLM API calls 
 - Integrate other data sources - ECR, Regulations.gov, etc
