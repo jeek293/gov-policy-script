@@ -12,7 +12,7 @@ This analytical tool provides a pipeline for monitoring US Federal Government ac
 ### **Business Value**
 Enables policy analysts and tech executives to programmatically identify regulatory signals within thousands of daily government publications that might otherwise be missed by keyword-only searches.
 
-###**TODOS**:
+### **TODOS**:
 - Clean up output
 - Add Vector DB for storage, metadata for efficient and precise retrieval
 -   Add LLM API calls 
