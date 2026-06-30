@@ -4,6 +4,8 @@
 This analytical tool provides a pipeline for monitoring US Federal Government activity. It identifies relevant policy changes by comparing real-time Federal Register documents against specific industry profiles using transformer-based semantic similarity. **Although fairly simple, this is much more so meant to demonstrate driving business value, as well as my own thought process, rather than technical grace.**
 
 ### **TODOS**:
+- Standardize pep style, add linting, type hints
+- Move functions to separate module
 - Clean up input/output
 - Add Vector DB for storage, metadata for efficient and precise retrieval
 - Add LLM API calls for additional analysis 
