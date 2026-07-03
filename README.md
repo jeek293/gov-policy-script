@@ -5,7 +5,8 @@ This analytical tool provides a pipeline for monitoring US Federal Government ac
 
 ### **TODOS**:
 - Standardize pep style, add linting, type hints
-- Move functions to separate module
+- ~~Move functions to separate module~~
+       - Done, need to update .ipynb
 - Clean up input/output
 - Add Vector DB for storage, metadata for efficient and precise retrieval
 - Add LLM API calls for additional analysis 
