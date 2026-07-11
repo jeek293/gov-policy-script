@@ -52,25 +52,54 @@ def fetch_FR(
     fields: list[str],
     publication_date_gte: str,
     per_page: int = 1000,
+    max_pages: int | None = None,
 ) -> list[dict[str, Any]]:
     """
     Fetch Federal Register documents published on or after a given date.
+    Supports pagination to retrieve all results.
+
+    Args:
+        url: The API endpoint URL.
+        fields: List of fields to retrieve.
+        publication_date_gte: Start date for filtering (YYYY-MM-DD format).
+        per_page: Number of results per page (default: 1000).
+        max_pages: Maximum number of pages to fetch. None fetches all pages.
 
     Returns:
-        A list of document dictionaries.
+        A list of document dictionaries from all pages.
     """
-    params = {
-        "fields[]": fields,
-        "conditions[type][]": ["RULE", "PRORULE", "PRESDOCU"],
-        "conditions[publication_date][gte]": publication_date_gte,
-        "per_page": per_page,
-    }
+    all_results = []
+    page = 1
 
     try:
-        response = requests.get(url, params=params, timeout=30)
-        response.raise_for_status()
-        return response.json()["results"]
+        while True:
+            params = {
+                "fields[]": fields,
+                "conditions[type][]": ["RULE", "PRORULE", "PRESDOCU"],
+                "conditions[publication_date][gte]": publication_date_gte,
+                "per_page": per_page,
+                "page": page,
+            }
+
+            response = requests.get(url, params=params, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+            results = data.get("results", [])
+
+            if not results:
+                break
+
+            all_results.extend(results)
+            print(f"Fetched page {page}: {len(results)} results")
+
+            if max_pages and page >= max_pages:
+                break
+
+            page += 1
+
+        print(f"Total results fetched: {len(all_results)}")
+        return all_results
 
     except requests.RequestException as e:
         print(f"Error fetching Federal Register data: {e}")
-        return []
+        return all_results
