@@ -11,7 +11,7 @@ This analytical tool provides a pipeline for monitoring US Federal Government ac
 - Add Vector DB for storage, metadata for efficient and precise retrieval
 - Add LLM API calls for additional analysis 
 - Integrate other data sources - ECR, Regulations.gov, etc
-- add pagination for FR calls
+- ~~add pagination for FR calls~~
 - Find solution for updated docs
 - Add metrics for peformance
 - Investigate rate limits/throttling criteria to enhance speed.
